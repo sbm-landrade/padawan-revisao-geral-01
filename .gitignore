@@ -28,3 +28,7 @@ replay_pid*
 mvnw
 mvnw.cmd
 .mvn
+
+# vscode
+
+.vscode
