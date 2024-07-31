@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { JogadoresComponent } from './jogadores/jogadores.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './jogadores/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    JogadoresComponent
+    JogadoresComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

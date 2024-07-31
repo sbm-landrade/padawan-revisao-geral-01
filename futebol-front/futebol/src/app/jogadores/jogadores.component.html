@@ -1,10 +1,19 @@
 <!--Define a estrutura HTML para exibir a lista de filmes-->
-<div>
   <h1>Lista de Jogadores</h1>
 
-  <ul>
-    <li *ngFor="let jogador of jogadores">
-      {{jogador.nome}} - {{jogador.time}}
-    </li>
-  </ul>
-  </div>
+<!-- Campo de busca -->
+<input type="text" [(ngModel)]="searchTerm" placeholder="Buscar filme..." />
+
+<table>
+  <tr>
+    <th>Jogador</th>
+    <th>Time</th>
+  </tr>
+  <tr *ngFor="let jogador of jogadores | filter:searchTerm">
+    <td>{{ jogador.nome }}</td>
+    <td>{{ jogador.time }}</td>
+    <td>
+      <!-- Botões para editar e deletar -->
+    </td>
+  </tr>
+  <table>
