@@ -18,7 +18,7 @@ export class JogadoresComponent implements OnInit {
   }
 
   listarTodos(): void {
-    this.jogadorService.listarTodos().subscribe(jogadores => this.jogadores = this.jogadores);
+    this.jogadorService.listarTodos().subscribe(jogadores => this.jogadores = jogadores);
   }
 
 }
