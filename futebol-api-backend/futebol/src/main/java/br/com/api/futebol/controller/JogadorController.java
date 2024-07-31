@@ -2,13 +2,15 @@
 
 package br.com.api.futebol.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import br.com.api.futebol.model.Jogador;
 import br.com.api.futebol.repository.JogadorRepository;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/jogadores")
