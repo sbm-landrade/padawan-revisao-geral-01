@@ -1,1 +1,10 @@
-<p>jogadores works!</p>
+<!--Define a estrutura HTML para exibir a lista de filmes-->
+<div>
+  <h1>Lista de Jogadores</h1>
+
+  <ul>
+    <li *ngFor="let jogador of jogadores">
+      {{jogador.nome}} - {{jogador.time}}
+    </li>
+  </ul>
+  </div>
