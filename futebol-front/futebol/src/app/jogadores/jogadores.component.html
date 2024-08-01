@@ -12,8 +12,12 @@
   <tr *ngFor="let jogador of jogadores | filter:searchTerm">
     <td>{{ jogador.nome }}</td>
     <td>{{ jogador.time }}</td>
-    <td>
-      <!-- Botões para editar e deletar -->
-    </td>
+   <!-- <td>
+      <button (click)="atualizar(jogador.id)">Editar</button>
+      <button (click)="deleteJogador(jogador.id)">Deletar</button>
+    </td>-->
   </tr>
-  <table>
+<table>
+<!--
+<button (click)="createJogador()">Adicionar Novo Jogador</button>
+-->
