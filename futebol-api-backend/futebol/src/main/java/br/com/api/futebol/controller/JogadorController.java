@@ -16,34 +16,45 @@ import br.com.api.futebol.repository.JogadorRepository;
 @RequestMapping("/api/jogadores")
 public class JogadorController {
 
-    @Autowired
-    private JogadorRepository jogadorRepository;
+	@Autowired
+	private JogadorRepository jogadorRepository;
 
-    @GetMapping
-    public List<Jogador> listarJogadores() {
-        return jogadorRepository.findAll();
-    }
+	@GetMapping
+	public List<Jogador> listarJogadores(@RequestParam(required = false) String nome,
+			@RequestParam(required = false) String time) {
+		if (nome != null && time != null) {
+            return jogadorRepository.findByNomeAndTimeContaining(nome, time);
+        } else if (nome != null) {
+            return jogadorRepository.findByNomeContaining(nome);
+        } else if (time != null) {
+            return jogadorRepository.findByTimeContaining(time);
+        } else {
+            return jogadorRepository.findAll();
+        }
+	}
 
-    @PostMapping
-    public Jogador adicionarJogador(@RequestBody Jogador jogador) {
-        return jogadorRepository.save(jogador);
-    }
+	@PostMapping
+	public Jogador adicionarJogador(@RequestBody Jogador jogador) {
+		return jogadorRepository.save(jogador);
+	}
 
-    @GetMapping("/{id}")
-    public Jogador obterJogador(@PathVariable Long id) {
-        return jogadorRepository.findById(id).orElseThrow(() -> new RuntimeException("Jogador não encontrado"));
-    }
+	@GetMapping("/{id}")
+	public Jogador obterJogador(@PathVariable Long id) {
+		return jogadorRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Jogador não encontrado"));
+	}
 
-    @PutMapping("/{id}")
-    public Jogador atualizarJogador(@PathVariable Long id, @RequestBody Jogador jogador) {
-        Jogador jogadorExistente = jogadorRepository.findById(id).orElseThrow(() -> new RuntimeException("Jogador não encontrado"));
-        jogadorExistente.setNome(jogador.getNome());
-        jogadorExistente.setTime(jogador.getTime());
-        return jogadorRepository.save(jogadorExistente);
-    }
+	@PutMapping("/{id}")
+	public Jogador atualizarJogador(@PathVariable Long id, @RequestBody Jogador jogador) {
+		Jogador jogadorExistente = jogadorRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Jogador não encontrado"));
+		jogadorExistente.setNome(jogador.getNome());
+		jogadorExistente.setTime(jogador.getTime());
+		return jogadorRepository.save(jogadorExistente);
+	}
 
-    @DeleteMapping("/{id}")
-    public void excluirJogador(@PathVariable Long id) {
-        jogadorRepository.deleteById(id);
-    }
+	@DeleteMapping("/{id}")
+	public void excluirJogador(@PathVariable Long id) {
+		jogadorRepository.deleteById(id);
+	}
 }
