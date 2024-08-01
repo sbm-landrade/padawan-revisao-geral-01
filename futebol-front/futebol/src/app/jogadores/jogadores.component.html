@@ -1,0 +1,42 @@
+<div class="container">
+  <!-- Lista de jogadores -->
+  <h1>Lista de Jogadores</h1>
+
+  <!-- Campo de busca -->
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar jogador..." (input)="buscarJogadores()" class="campoBusca"/>
+
+  <table>
+    <tr>
+      <th>Jogador</th>
+      <th>Time</th>
+      <th>Ações</th>
+    </tr>
+    <tr *ngFor="let jogador of jogadores">
+      <td>{{ jogador.nome }}</td>
+      <td>{{ jogador.time }}</td>
+      <td>
+        <button (click)="openEditModal(jogador)">Editar</button>
+        <button (click)="deleteJogador(jogador.id ?? 0)">Deletar</button>
+      </td>
+    </tr>
+  </table>
+
+  <button (click)="openCreateModal()">Adicionar Novo Jogador</button>
+
+  <!-- Modal de Criação e Edição -->
+  <div *ngIf="showModal" class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h3>{{ selectedJogador && selectedJogador.id ? 'Editar Jogador' : 'Adicionar Novo Jogador' }}</h3>
+      <form (ngSubmit)="saveJogador()">
+        <label for="nome">Nome do Jogador</label>
+        <input type="text" [(ngModel)]="selectedJogador.nome" id="nome" name="nome" required>
+
+        <label for="time">Time do Jogador</label>
+        <input type="text" [(ngModel)]="selectedJogador.time" id="time" name="time" required>
+
+        <button type="submit">Salvar</button>
+        <button type="button" (click)="closeModal()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

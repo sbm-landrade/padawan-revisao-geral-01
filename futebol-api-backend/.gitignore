@@ -29,6 +29,4 @@ mvnw
 mvnw.cmd
 .mvn
 
-# vscode
-
-.vscode
+.project
