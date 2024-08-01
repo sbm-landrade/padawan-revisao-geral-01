@@ -1,23 +1,24 @@
-<!--Define a estrutura HTML para exibir a lista de filmes-->
-  <h1>Lista de Jogadores</h1>
+<!-- Define a estrutura HTML para exibir a lista de jogadores -->
+<h1>Lista de Jogadores</h1>
 
 <!-- Campo de busca -->
-<input type="text" [(ngModel)]="searchTerm" placeholder="Buscar filme..." />
+<input type="text" [(ngModel)]="searchTerm" placeholder="Buscar jogador..." />
+<button (click)="buscarJogadores()">Buscar</button>
 
 <table>
   <tr>
     <th>Jogador</th>
     <th>Time</th>
+    <th>Ações</th>
   </tr>
-  <tr *ngFor="let jogador of jogadores | filter:searchTerm">
+  <tr *ngFor="let jogador of jogadores">
     <td>{{ jogador.nome }}</td>
     <td>{{ jogador.time }}</td>
-   <!-- <td>
+    <td>
       <button (click)="atualizar(jogador.id)">Editar</button>
       <button (click)="deleteJogador(jogador.id)">Deletar</button>
-    </td>-->
+    </td>
   </tr>
-<table>
-<!--
+</table>
+
 <button (click)="createJogador()">Adicionar Novo Jogador</button>
--->

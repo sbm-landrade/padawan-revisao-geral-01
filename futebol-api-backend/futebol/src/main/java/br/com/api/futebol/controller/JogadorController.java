@@ -19,6 +19,7 @@ public class JogadorController {
 	@Autowired
 	private JogadorRepository jogadorRepository;
 
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping
 	public List<Jogador> listarJogadores(@RequestParam(required = false) String nome,
 			@RequestParam(required = false) String time) {
