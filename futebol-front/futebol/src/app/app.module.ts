@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JogadoresComponent } from './jogadores/jogadores.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; //Necessário para ngModel
 import { FilterPipe } from './jogadores/filter.pipe';
 
 @NgModule({

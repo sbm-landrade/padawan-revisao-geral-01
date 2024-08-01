@@ -14,14 +14,4 @@ public class FutebolApplication {
 		SpringApplication.run(FutebolApplication.class, args);
 	}
 	
-	@Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4200");
-            }
-	    };
-	}
-
 }
