@@ -8,7 +8,7 @@
 		<version>3.3.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.api</groupId>
+	<groupId>br.com.futebol.api</groupId>
 	<artifactId>futebol</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>futebol</name>
